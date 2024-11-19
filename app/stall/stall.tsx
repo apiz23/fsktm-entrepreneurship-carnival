@@ -23,7 +23,7 @@ import pic19 from "@/public/img/19.jpg";
 import pic20 from "@/public/img/20.jpg";
 import pic21 from "@/public/img/21.jpg";
 import pic22 from "@/public/img/22.jpg";
-import pic23 from "@/public/img/23.jpeg";
+import pic23 from "@/public/img/23.jpg";
 import pic24 from "@/public/img/24.jpg";
 import pic25 from "@/public/img/25.png";
 import pic26 from "@/public/img/26.jpeg";
@@ -38,6 +38,7 @@ import pic33 from "@/public/img/33.jpg";
 import pic34 from "@/public/img/34.jpg";
 import pic35 from "@/public/img/35.jpg";
 import pic36 from "@/public/img/36.jpg";
+import layout from "@/public/img/layout-plan.png";
 
 import Image from "next/image";
 import { StaticImageData } from "next/image";
@@ -59,6 +60,17 @@ import {
 	CarouselNext,
 	CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useState } from "react";
+import {
+	Drawer,
+	DrawerClose,
+	DrawerContent,
+	DrawerDescription,
+	DrawerFooter,
+	DrawerHeader,
+	DrawerTitle,
+	DrawerTrigger,
+} from "@/components/ui/drawer";
 
 type Stall = {
 	name: string;
@@ -250,85 +262,131 @@ const stalls: Record<string, Stall> = {
 };
 
 const StallList: React.FC = () => {
+	const [searchTerm, setSearchTerm] = useState("");
 	const stallList = Object.values(stalls);
+
+	const filteredStalls = stallList.filter((stall, index) => {
+		const lowercasedSearchTerm = searchTerm.toLowerCase();
+		return (index + 1).toString().includes(lowercasedSearchTerm);
+	});
 
 	return (
 		<div className="max-w-7xl mx-auto p-4">
 			<h1 className="text-center text-4xl md:text-6xl font-bold mb-8">
 				Food Stalls
 			</h1>
+			<div className="mb-8 gap-4 flex justify-between max-w-7xl">
+				<input
+					type="text"
+					placeholder="Search by stall number..."
+					className="w-full mx-auto p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+					value={searchTerm}
+					onChange={(e) => setSearchTerm(e.target.value)}
+				/>
+				<Drawer>
+					<DrawerTrigger>
+						<Button variant="secondary">View Layout</Button>
+					</DrawerTrigger>
+					<DrawerContent className="max-w-3xl h-[60vh] mx-auto">
+						<DrawerHeader>
+							<DrawerTitle>Event Layout</DrawerTitle>
+						</DrawerHeader>
+						<Image
+							src={layout}
+							alt="Event Layout"
+							width={500}
+							height={500}
+							className="w-full h-auto object-contain max-w-full max-h-full"
+						/>
+						<DrawerFooter>
+							<DrawerClose>
+								<Button variant="outline">Cancel</Button>
+							</DrawerClose>
+						</DrawerFooter>
+					</DrawerContent>
+				</Drawer>
+			</div>
 			<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-				{stallList.map((stall, index) => (
-					<Dialog key={index}>
-						<div className="rounded-lg shadow-xl">
-							<Image
-								src={Array.isArray(stall.url) ? stall.url[0] : stall.url}
-								alt={stall.name}
-								className="w-full h-[50vh] object-cover rounded-lg mb-4"
-								width={400}
-								height={200}
-							/>
-							<div className="p-4">
-								<h2 className="text-3xl font-semibold mb-2 capitalize">{stall.name}</h2>
-								<p className="text-gray-600 mb-2">{stall.description}</p>
-								<p className="text-gray-800 font-medium">
-									<strong>Stall No:</strong> {index + 1}
-								</p>
-								<DialogTrigger className="w-full text-right">
-									<Button variant="default">See More</Button>
-								</DialogTrigger>
-							</div>
-						</div>
+				{filteredStalls.length === 0 ? (
+					<p className="text-center text-xl text-gray-500">No stalls found</p>
+				) : (
+					filteredStalls.map((stall, filteredIndex) => {
+						const originalIndex = stallList.indexOf(stall);
+						return (
+							<Dialog key={filteredIndex}>
+								<div className="rounded-lg shadow-xl">
+									<Image
+										src={Array.isArray(stall.url) ? stall.url[0] : stall.url}
+										alt={stall.name}
+										className="w-full h-[50vh] object-cover rounded-lg mb-4"
+										width={400}
+										height={200}
+									/>
+									<div className="p-4">
+										<h2 className="text-3xl font-semibold mb-2 capitalize">
+											{stall.name}
+										</h2>
+										<p className="text-gray-600 mb-2">{stall.description}</p>
+										<p className="text-gray-800 font-medium">
+											<strong>Stall No:</strong> {originalIndex + 1}
+										</p>
+										<DialogTrigger className="w-full text-right">
+											<Button variant="default">See More</Button>
+										</DialogTrigger>
+									</div>
+								</div>
 
-						<DialogContent className="max-w-2xl mx-auto overflow-y-auto">
-							<DialogHeader>
-								<DialogTitle className="text-2xl">{stall.name}</DialogTitle>
-								<DialogDescription className="text-lg">
-									{stall.description}
-								</DialogDescription>
-								<DialogDescription className="text-lg">
-									Stall - {index + 1}
-								</DialogDescription>
-							</DialogHeader>
-							<div className="p-4">
-								<Carousel>
-									<CarouselContent>
-										{Array.isArray(stall.url) ? (
-											stall.url.map((img, idx) => (
-												<CarouselItem key={idx}>
-													<Image
-														src={img}
-														alt={`${stall.name} - ${idx + 1}`}
-														className="rounded-lg shadow-md mx-auto"
-														width={400}
-														height={400}
-													/>
-												</CarouselItem>
-											))
-										) : (
-											<CarouselItem>
-												<Image
-													src={stall.url}
-													alt={stall.name}
-													className="rounded-lg shadow-md mx-auto min-h-fit"
-													width={400}
-													height={400}
-												/>
-											</CarouselItem>
-										)}
-									</CarouselContent>
-									<CarouselPrevious />
-									<CarouselNext />
-								</Carousel>
-							</div>
-							<DialogFooter>
-								<DialogClose>
-									<Button variant="outline">Close</Button>
-								</DialogClose>
-							</DialogFooter>
-						</DialogContent>
-					</Dialog>
-				))}
+								<DialogContent className="max-w-2xl mx-auto overflow-y-auto">
+									<DialogHeader>
+										<DialogTitle className="text-2xl">{stall.name}</DialogTitle>
+										<DialogDescription className="text-lg">
+											{stall.description}
+										</DialogDescription>
+										<DialogDescription className="text-lg">
+											Stall - {originalIndex + 1}
+										</DialogDescription>
+									</DialogHeader>
+									<div className="p-4">
+										<Carousel>
+											<CarouselContent>
+												{Array.isArray(stall.url) ? (
+													stall.url.map((img, idx) => (
+														<CarouselItem key={idx}>
+															<Image
+																src={img}
+																alt={`${stall.name} - ${idx + 1}`}
+																className="rounded-lg shadow-md mx-auto"
+																width={400}
+																height={400}
+															/>
+														</CarouselItem>
+													))
+												) : (
+													<CarouselItem>
+														<Image
+															src={stall.url}
+															alt={stall.name}
+															className="rounded-lg shadow-md mx-auto min-h-fit"
+															width={400}
+															height={400}
+														/>
+													</CarouselItem>
+												)}
+											</CarouselContent>
+											<CarouselPrevious />
+											<CarouselNext />
+										</Carousel>
+									</div>
+									<DialogFooter>
+										<DialogClose>
+											<Button variant="outline">Close</Button>
+										</DialogClose>
+									</DialogFooter>
+								</DialogContent>
+							</Dialog>
+						);
+					})
+				)}
 			</div>
 		</div>
 	);

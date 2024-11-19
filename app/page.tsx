@@ -105,8 +105,10 @@ export default function Home() {
 						/>
 						<div className="max-w-2xl mx-auto my-6">
 							<h3 className="scroll-m-20 text-lg text-neutral-700 font-normal text-center tracking-tight">
-								Representing FSKTM as candidates for UTHM{"'"}s student council,
-								dedicated to supporting and empowering our faculty community.
+								DATE 📆: November 20 {" - "} 21, 2024 <br />
+								TIME 🕒: 8:00 AM - 5:00 PM <br />
+								LOCATION 📍: Parking Lot, Faculty of Computer Science and Information
+								Technology (FSKTM)
 							</h3>
 						</div>
 						{/* <div className="flex justify-center">
