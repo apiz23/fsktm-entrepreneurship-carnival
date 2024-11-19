@@ -38,17 +38,14 @@ import pic33 from "@/public/img/33.jpg";
 import pic34 from "@/public/img/34.jpg";
 import pic35 from "@/public/img/35.jpg";
 import pic36 from "@/public/img/36.jpg";
-import layout from "@/public/img/layout-plan.png";
 
 import Image from "next/image";
 import { StaticImageData } from "next/image";
 import { Button } from "@/components/ui/button";
 import {
 	Dialog,
-	DialogClose,
 	DialogContent,
 	DialogDescription,
-	DialogFooter,
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
@@ -61,15 +58,6 @@ import {
 	CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useState } from "react";
-import {
-	Drawer,
-	DrawerClose,
-	DrawerContent,
-	DrawerFooter,
-	DrawerHeader,
-	DrawerTitle,
-	DrawerTrigger,
-} from "@/components/ui/drawer";
 
 type Stall = {
 	name: string;
@@ -274,7 +262,7 @@ const StallList: React.FC = () => {
 			<h1 className="text-center text-4xl md:text-6xl font-bold mb-8">
 				Food Stalls
 			</h1>
-			<div className="mb-8 gap-4 flex justify-between max-w-7xl">
+			<div className="mb-8 gap-4 max-w-4xl space-y-4 text-center mx-auto">
 				<input
 					type="text"
 					placeholder="Search by stall number..."
@@ -282,28 +270,6 @@ const StallList: React.FC = () => {
 					value={searchTerm}
 					onChange={(e) => setSearchTerm(e.target.value)}
 				/>
-				<Drawer>
-					<DrawerTrigger>
-						<Button variant="secondary">View Layout</Button>
-					</DrawerTrigger>
-					<DrawerContent className="max-w-3xl h-[60vh] mx-auto">
-						<DrawerHeader>
-							<DrawerTitle>Event Layout</DrawerTitle>
-						</DrawerHeader>
-						<Image
-							src={layout}
-							alt="Event Layout"
-							width={500}
-							height={500}
-							className="w-full h-auto object-contain max-w-full max-h-full"
-						/>
-						<DrawerFooter>
-							<DrawerClose>
-								<Button variant="outline">Cancel</Button>
-							</DrawerClose>
-						</DrawerFooter>
-					</DrawerContent>
-				</Drawer>
 			</div>
 			<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 				{filteredStalls.length === 0 ? (
@@ -313,7 +279,7 @@ const StallList: React.FC = () => {
 						const originalIndex = stallList.indexOf(stall);
 						return (
 							<Dialog key={filteredIndex}>
-								<div className="rounded-lg shadow-xl">
+								<div className="rounded-lg shadow-xl bg-neutral-200">
 									<Image
 										src={Array.isArray(stall.url) ? stall.url[0] : stall.url}
 										alt={stall.name}
@@ -335,7 +301,7 @@ const StallList: React.FC = () => {
 									</div>
 								</div>
 
-								<DialogContent className="max-w-2xl mx-auto overflow-y-auto">
+								<DialogContent className="max-w-2xl mx-auto min-h-[50vh]">
 									<DialogHeader>
 										<DialogTitle className="text-2xl">{stall.name}</DialogTitle>
 										<DialogDescription className="text-lg">
@@ -365,7 +331,7 @@ const StallList: React.FC = () => {
 														<Image
 															src={stall.url}
 															alt={stall.name}
-															className="rounded-lg shadow-md mx-auto min-h-fit"
+															className="rounded-lg shadow-md mx-auto min-h-[80%]"
 															width={400}
 															height={400}
 														/>
@@ -376,11 +342,30 @@ const StallList: React.FC = () => {
 											<CarouselNext />
 										</Carousel>
 									</div>
-									<DialogFooter>
-										<DialogClose>
-											<Button variant="outline">Close</Button>
-										</DialogClose>
-									</DialogFooter>
+									{/* <DialogFooter>
+										<Dialog>
+											<DialogTrigger className="mx-auto">
+												<Button variant="default">View Layout</Button>
+											</DialogTrigger>
+											<DialogContent className="max-w-3xl h-[60vh] mx-auto">
+												<DialogHeader>
+													<DialogTitle>Event Layout</DialogTitle>
+												</DialogHeader>
+												<Image
+													src={layout}
+													alt="Event Layout"
+													width={500}
+													height={500}
+													className="w-full h-auto object-contain max-w-full max-h-full"
+												/>
+												<DialogFooter>
+													<DialogClose>
+														<Button variant="outline">Cancel</Button>
+													</DialogClose>
+												</DialogFooter>
+											</DialogContent>
+										</Dialog>
+									</DialogFooter> */}
 								</DialogContent>
 							</Dialog>
 						);
