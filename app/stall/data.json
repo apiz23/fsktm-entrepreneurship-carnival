@@ -1,0 +1,218 @@
+{
+	"1": {
+		"name": "Chick and chili",
+		"url": "https://example.com/chick-and-chili",
+		"description": "A stall specializing in spicy chicken dishes.",
+		"location": "Zone A"
+	},
+	"2": {
+		"name": "LOKCING BERAPI",
+		"url": "https://example.com/lokcing-berapi",
+		"description": "Grilled skewers with a fiery twist.",
+		"location": "Zone B"
+	},
+	"3": {
+		"name": "Fry&Fizz Delight",
+		"url": "https://example.com/fry-fizz-delight",
+		"description": "Delicious fried snacks paired with fizzy drinks.",
+		"location": "Zone A"
+	},
+	"4": {
+		"name": "BLISS N' SWEET",
+		"url": "https://example.com/bliss-n-sweet",
+		"description": "A haven for dessert and sweet lovers.",
+		"location": "Zone C"
+	},
+	"5": {
+		"name": "Yum Yum",
+		"url": "https://example.com/yum-yum",
+		"description": "A stall offering a variety of comfort foods.",
+		"location": "Zone B"
+	},
+	"6": {
+		"name": "Cendol and Friends",
+		"url": "https://example.com/cendol-and-friends",
+		"description": "Refreshing cendol and other sweet beverages.",
+		"location": "Zone A"
+	},
+	"7": {
+		"name": "Hihang Hoheng",
+		"url": "https://example.com/hihang-hoheng",
+		"description": "A unique mix of traditional and modern snacks.",
+		"location": "Zone C"
+	},
+	"8": {
+		"name": "PERFECT TREATS",
+		"url": "https://example.com/perfect-treats",
+		"description": "Premium baked goods and pastries.",
+		"location": "Zone B"
+	},
+	"9": {
+		"name": "Pasta and Sip cafe'",
+		"url": "https://example.com/pasta-and-sip-cafe",
+		"description": "Pasta dishes paired with delightful beverages.",
+		"location": "Zone C"
+	},
+	"10": {
+		"name": "Tenderlicious",
+		"url": "https://example.com/tenderlicious",
+		"description": "Juicy and tender grilled delights.",
+		"location": "Zone A"
+	},
+	"11": {
+		"name": "petal and promise",
+		"url": "https://example.com/petal-and-promise",
+		"description": "Lovely floral-themed desserts.",
+		"location": "Zone B"
+	},
+	"12": {
+		"name": "Market Vibes",
+		"url": "https://example.com/market-vibes",
+		"description": "A vibrant mix of local market-style offerings.",
+		"location": "Zone C"
+	},
+	"13": {
+		"name": "MANTOULICIOUS",
+		"url": "https://example.com/mantoulicious",
+		"description": "Delicious mantou buns with various fillings.",
+		"location": "Zone A"
+	},
+	"14": {
+		"name": "MURTABUCK EMPIRE",
+		"url": "https://example.com/murtabuck-empire",
+		"description": "Murtabak with a twist of flavors.",
+		"location": "Zone B"
+	},
+	"15": {
+		"name": "LEKOR & FRUITY DELIGHTS",
+		"url": "https://example.com/lekor-fruity-delights",
+		"description": "Crispy keropok lekor and fresh fruit drinks.",
+		"location": "Zone A"
+	},
+	"16": {
+		"name": "L'il Pancake",
+		"url": "https://example.com/lil-pancake",
+		"description": "Mini pancakes with sweet toppings.",
+		"location": "Zone C"
+	},
+	"17": {
+		"name": "Wantakers",
+		"url": "https://example.com/wantakers",
+		"description": "Tasty wantan and takoyaki dishes.",
+		"location": "Zone B"
+	},
+	"18": {
+		"name": "Treasure & Treats",
+		"url": "https://example.com/treasure-and-treats",
+		"description": "A treasure chest of delightful treats.",
+		"location": "Zone A"
+	},
+	"19": {
+		"name": "JEM-BALANG",
+		"url": "https://example.com/jem-balang",
+		"description": "Refreshing beverages in large serving balangs.",
+		"location": "Zone B"
+	},
+	"20": {
+		"name": "O' FILLET",
+		"url": "https://example.com/o-fillet",
+		"description": "Crispy fillets served in unique ways.",
+		"location": "Zone C"
+	},
+	"21": {
+		"name": "CraftedBytes",
+		"url": "https://example.com/craftedbytes",
+		"description": "Tech-themed snacks and treats.",
+		"location": "Zone B"
+	},
+	"22": {
+		"name": "Siuuuuuuushi",
+		"url": "https://example.com/siuuuuuuushi",
+		"description": "Freshly made sushi rolls.",
+		"location": "Zone A"
+	},
+	"23": {
+		"name": "Laksa Johor Mama",
+		"url": "https://example.com/laksa-johor-mama",
+		"description": "Authentic Laksa Johor served hot.",
+		"location": "Zone B"
+	},
+	"24": {
+		"name": "popiahlicious",
+		"url": "https://example.com/popiahlicious",
+		"description": "Delicious handmade popiah rolls.",
+		"location": "Zone C"
+	},
+	"25": {
+		"name": "ChillBites",
+		"url": "https://example.com/chillbites",
+		"description": "Cool treats and quick bites.",
+		"location": "Zone A"
+	},
+	"26": {
+		"name": "KCrave Corner",
+		"url": "https://example.com/kcrave-corner",
+		"description": "Korean-inspired street food.",
+		"location": "Zone B"
+	},
+	"27": {
+		"name": "The Daily Bites",
+		"url": "https://example.com/the-daily-bites",
+		"description": "Your go-to for daily comfort snacks.",
+		"location": "Zone A"
+	},
+	"28": {
+		"name": "Wrap n Roll",
+		"url": "https://example.com/wrap-n-roll",
+		"description": "Fresh wraps with flavorful fillings.",
+		"location": "Zone C"
+	},
+	"29": {
+		"name": "PopisCane Pitstop",
+		"url": "https://example.com/popiscane-pitstop",
+		"description": "Popis and cane juice for a refreshing combo.",
+		"location": "Zone B"
+	},
+	"30": {
+		"name": "Rasa Warisan",
+		"url": "https://example.com/rasa-warisan",
+		"description": "Traditional dishes with authentic flavors.",
+		"location": "Zone C"
+	},
+	"31": {
+		"name": "Stacked & Stuffed",
+		"url": "https://example.com/stacked-stuffed",
+		"description": "Overloaded sandwiches and burgers.",
+		"location": "Zone A"
+	},
+	"32": {
+		"name": "Savoury Snacks Station",
+		"url": "https://example.com/savoury-snacks-station",
+		"description": "An array of salty and savory snacks.",
+		"location": "Zone B"
+	},
+	"33": {
+		"name": "rumah impit",
+		"url": "https://example.com/rumah-impit",
+		"description": "Classic nasi impit and rendang pairings.",
+		"location": "Zone C"
+	},
+	"34": {
+		"name": "Manis",
+		"url": "https://example.com/manis",
+		"description": "Sweet desserts and treats.",
+		"location": "Zone A"
+	},
+	"35": {
+		"name": "AIR BALANG FSKETAM",
+		"url": "https://example.com/air-balang-fsketam",
+		"description": "Refreshing air balang with a tagline 'Pasti Ter Air Love You.'",
+		"location": "Zone B"
+	},
+	"36": {
+		"name": "Petals and Promises",
+		"url": "https://example.com/petals-and-promises",
+		"description": "Elegant desserts inspired by floral designs.",
+		"location": "Zone C"
+	}
+}
