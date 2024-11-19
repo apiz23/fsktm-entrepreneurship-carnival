@@ -45,7 +45,7 @@ export default function Home() {
 					titleComponent={
 						<>
 							<SparklesText
-								className="text-4xl md:text-6xl font-semibold text-black dark:text-white px-5 uppercase"
+								className="text-3xl md:text-6xl font-semibold text-black dark:text-white px-5 uppercase"
 								text="fsktm entrepreneurship carnival"
 							/>
 
@@ -101,7 +101,7 @@ export default function Home() {
 
 						<SparklesText
 							text="fsktm entrepreneurship carnival"
-							className="scroll-m-20 uppercase text-slate-800 md:text-5xl text-4xl font-extrabold tracking-wide lg:text-7xl text-center px-10"
+							className="scroll-m-20 uppercase text-slate-800 md:text-5xl text-2xl font-extrabold tracking-wide lg:text-7xl text-center px-10"
 						/>
 						<div className="max-w-2xl mx-auto my-6">
 							<h3 className="scroll-m-20 text-lg text-neutral-700 font-normal text-center tracking-tight">
