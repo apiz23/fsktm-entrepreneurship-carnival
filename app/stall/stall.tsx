@@ -291,56 +291,88 @@ const StallList: React.FC = () => {
 					}}
 				/>
 			</div>
+
+			<div className="flex justify-between my-6">
+				<Button
+					onClick={() => handlePageChange(currentPage - 1)}
+					disabled={currentPage === 1}
+				>
+					Previous
+				</Button>
+				<span className="text-lg font-medium">
+					Page {currentPage} of {totalPages}
+				</span>
+				<Button
+					onClick={() => handlePageChange(currentPage + 1)}
+					disabled={currentPage === totalPages}
+				>
+					Next
+				</Button>
+			</div>
+
 			<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-				{currentStalls.length === 0 ? (
+				{filteredStalls.length === 0 ? (
 					<p className="text-center text-xl text-gray-500">No stalls found</p>
 				) : (
-					currentStalls.map((stall, index) => (
-						<div key={index} className="rounded-lg shadow-xl bg-neutral-200">
-							<Image
-								src={Array.isArray(stall.url) ? stall.url[0] : stall.url}
-								alt={stall.name}
-								className="w-full h-[50vh] object-cover rounded-lg mb-4"
-								width={400}
-								height={200}
-							/>
-							<div className="p-4">
-								<h2 className="text-3xl font-semibold mb-2 capitalize">{stall.name}</h2>
-								<p className="text-gray-600 mb-2">{stall.description}</p>
-							</div>
-						</div>
-					))
+					currentStalls.map((stall, index) => {
+						const originalIndex = stallList.indexOf(stall);
+						return (
+							<Dialog key={index}>
+								<div className="rounded-lg shadow-xl bg-neutral-200">
+									<Image
+										src={Array.isArray(stall.url) ? stall.url[0] : stall.url}
+										alt={stall.name}
+										className="w-full h-[50vh] object-cover rounded-lg mb-4"
+										width={400}
+										height={200}
+									/>
+									<div className="p-4">
+										<h2 className="text-3xl font-semibold mb-2 capitalize">
+											{stall.name}
+										</h2>
+										<p className="text-gray-600 mb-2">{stall.description}</p>
+										<p className="text-gray-800 font-medium">
+											<strong>Stall No:</strong> {originalIndex + 1}
+										</p>
+										<DialogTrigger className="w-full text-right">
+											<Button variant="default">See More</Button>
+										</DialogTrigger>
+									</div>
+								</div>
+
+								<DialogContent className="max-w-2xl mx-auto min-h-[50vh]">
+									<DialogHeader>
+										<DialogTitle className="text-2xl">{stall.name}</DialogTitle>
+										<DialogDescription className="text-lg">
+											{stall.description}
+										</DialogDescription>
+										<DialogDescription className="text-lg">
+											Stall - {originalIndex + 1}
+										</DialogDescription>
+									</DialogHeader>
+								</DialogContent>
+							</Dialog>
+						);
+					})
 				)}
 			</div>
 
-			<div className="flex justify-center items-center mt-8">
-				<div className="flex overflow-x-auto space-x-2">
-					<button
-						className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
-						onClick={() => handlePageChange(currentPage - 1)}
-						disabled={currentPage === 1}
-					>
-						Previous
-					</button>
-					{Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-						<button
-							key={page}
-							className={`px-4 py-2 rounded ${
-								page === currentPage ? "bg-indigo-500 text-white" : "bg-gray-200"
-							}`}
-							onClick={() => handlePageChange(page)}
-						>
-							{page}
-						</button>
-					))}
-					<button
-						className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
-						onClick={() => handlePageChange(currentPage + 1)}
-						disabled={currentPage === totalPages}
-					>
-						Next
-					</button>
-				</div>
+			<div className="flex justify-between my-6">
+				<Button
+					onClick={() => handlePageChange(currentPage - 1)}
+					disabled={currentPage === 1}
+				>
+					Previous
+				</Button>
+				<span className="text-lg font-medium">
+					Page {currentPage} of {totalPages}
+				</span>
+				<Button
+					onClick={() => handlePageChange(currentPage + 1)}
+					disabled={currentPage === totalPages}
+				>
+					Next
+				</Button>
 			</div>
 		</div>
 	);
