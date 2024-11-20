@@ -318,16 +318,16 @@ const StallList: React.FC = () => {
 						const originalIndex = stallList.indexOf(stall);
 						return (
 							<Dialog key={index}>
-								<div className="rounded-lg shadow-xl bg-neutral-200">
+								<div className="block rounded-lg shadow-xl bg-pink-200">
 									<Image
 										src={Array.isArray(stall.url) ? stall.url[0] : stall.url}
 										alt={stall.name}
-										className="w-full h-[50vh] object-cover rounded-lg mb-4"
+										className="w-full object-cover h-[50vh]"
 										width={400}
 										height={200}
 									/>
 									<div className="p-4">
-										<h2 className="text-3xl font-semibold mb-2 capitalize">
+										<h2 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl">
 											{stall.name}
 										</h2>
 										<p className="text-gray-600 mb-2">{stall.description}</p>
@@ -340,14 +340,14 @@ const StallList: React.FC = () => {
 									</div>
 								</div>
 
-								<DialogContent className="max-w-2xl mx-auto min-h-[50vh]">
+								<DialogContent className="max-w-2xl mx-auto min-h-[50vh] bg-purple-300/80">
 									<DialogHeader>
 										<DialogTitle className="text-2xl">{stall.name}</DialogTitle>
-										<DialogDescription className="text-lg">
+										<DialogDescription className="text-lg text-gray-800">
 											{stall.description}
 										</DialogDescription>
-										<DialogDescription className="text-lg">
-											Stall - {originalIndex + 1}
+										<DialogDescription className="text-lg text-black">
+											Stall - <strong>{originalIndex + 1}</strong>
 										</DialogDescription>
 									</DialogHeader>
 									<div className="p-4">
