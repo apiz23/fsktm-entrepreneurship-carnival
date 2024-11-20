@@ -11,6 +11,7 @@ import Lenis from "@studio-freight/lenis";
 import SparklesText from "@/components/ui/sparkles-text";
 import { ContainerScroll } from "@/components/container-scroll-anim";
 import StallList from "./stall/stall";
+import Footer from "@/components/footer";
 
 export default function Home() {
 	const [isMobile, setIsMobile] = useState(false);
@@ -95,7 +96,7 @@ export default function Home() {
 								alt="logo"
 								width={500}
 								height={500}
-								className="object-contain w-[20vw] min-w-[100px] max-w-[150px] h-auto"
+								className="object-contain w-[16vw] max-w-[100px] h-auto"
 							/>
 						</div>
 
@@ -128,6 +129,7 @@ export default function Home() {
 			<div className="min-h-screen bg-gradient-to-b from-purple-300 via-purple-400 to-purple-300 py-32">
 				<StallList />
 			</div>
+			<Footer />
 		</>
 	);
 }
