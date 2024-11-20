@@ -350,6 +350,37 @@ const StallList: React.FC = () => {
 											Stall - {originalIndex + 1}
 										</DialogDescription>
 									</DialogHeader>
+									<div className="p-4">
+										<Carousel>
+											<CarouselContent>
+												{Array.isArray(stall.url) ? (
+													stall.url.map((img, idx) => (
+														<CarouselItem key={idx}>
+															<Image
+																src={img}
+																alt={`${stall.name} - ${idx + 1}`}
+																className="rounded-lg shadow-md mx-auto"
+																width={400}
+																height={400}
+															/>
+														</CarouselItem>
+													))
+												) : (
+													<CarouselItem>
+														<Image
+															src={stall.url}
+															alt={stall.name}
+															className="rounded-lg shadow-md mx-auto min-h-[80%]"
+															width={400}
+															height={400}
+														/>
+													</CarouselItem>
+												)}
+											</CarouselContent>
+											<CarouselPrevious />
+											<CarouselNext />
+										</Carousel>
+									</div>
 								</DialogContent>
 							</Dialog>
 						);
