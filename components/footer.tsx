@@ -1,5 +1,7 @@
 import Image from "next/image";
 import techVentura from "@/public/img/tech-ventura.png";
+import Link from "next/link";
+import { FolderGit2Icon, Github } from "lucide-react";
 
 export default function Footer() {
 	return (
@@ -14,10 +16,28 @@ export default function Footer() {
 							width={48}
 							height={48}
 						/>
-						<p className="mt-2 text-sm font-medium text-gray-300">Tech Ventura</p>
-						<p className="mt-1 text-xs text-gray-400">
+						<p className="mt-2 text-md font-semibold text-gray-300">Tech Ventura</p>
+						<p className="mt-1 text-xs text-gray-300">
 							© 2024 Tech Ventura. All rights reserved.
 						</p>
+					</div>
+					<div className="mt-6 flex justify-center space-x-6">
+						<Link
+							href="https://github.com/apiz23"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-gray-300 hover:text-white text-sm"
+						>
+							<Github />
+						</Link>
+						<Link
+							href="https://github.com/apiz23/fsktm-entrepreneurship-carnival"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-gray-300 hover:text-white text-sm"
+						>
+							<FolderGit2Icon />
+						</Link>
 					</div>
 				</div>
 			</footer>
